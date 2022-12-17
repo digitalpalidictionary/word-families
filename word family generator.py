@@ -39,15 +39,15 @@ def generate_word_family_html():
 	dpd_df.loc[dpd_df["Literal Meaning"] != "", "Meaning IN CONTEXT"] += "; lit. " + dpd_df["Literal Meaning"]
 
 	counter = 0
+	word_family_dict = {}
 	word_families_set_length = len(word_families_set)
 
 	for word_family in word_families_set:
 		
-		word_family_dict = {}
 		html_string = ""
 
-		# if counter % 25 == 0:
-		print(f"{timeis()} {counter}/{word_families_set_length}\t{word_family}")
+		if counter % 25 == 0:
+			print(f"{timeis()} {counter}/{word_families_set_length}\t{word_family}")
 
 		test1 = dpd_df["Word Family"] != ""
 		test2 = dpd_df["Word Family"].str.contains(f"\\b{word_family}\\b")
