@@ -8,6 +8,7 @@ import json
 from timeis import timeis, yellow, line, white, green, tic, toc
 from delete_unused_files import del_unused_files
 from datetime import date
+from superscripter import superscripter
 
 def setup_dpd_df():
 	print(f"{timeis()} {green}setting up dpd dataframe", end=" ")
@@ -67,6 +68,7 @@ def generate_word_family_html_csv():
 
 			for row in range(length):
 				pali = word_family_df.iloc[row, 0]
+				pali = superscripter(pali)
 				pos = word_family_df.iloc[row, 1]
 				meaning = word_family_df.iloc[row, 2]
 				construction = word_family_df.iloc[row, 3]
